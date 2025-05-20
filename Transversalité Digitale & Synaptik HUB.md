@@ -1757,16 +1757,6 @@ json
           "déchetsMENU": {
 ```
 
-Réessayer  
-A
-
-Continuer
-
-Modifier  
-Continued documenting detailed component data model structure  
-2s
-
-Je dois continuer de présenter la structure détaillée du modèle de données de composant que j'avais commencé. Il semble que la réponse précédente ait été coupée lors de la description des impacts environnementaux pour la phase fin de vie, au niveau des déchets MENU. Je vais poursuivre cette documentation complète.
 
 json
 
