@@ -1,4 +1,4 @@
-# **Transversalité Digitale & Synaptik HUB**
+# **Transversalité Digitale**
 
 ## **Méthodologie et ontologie pour un environnement bâti cohérent et performant**
 
@@ -158,7 +158,7 @@ MONDE IMMATÉRIEL                                    MONDE MATÉRIEL
   * **Capacités dynamiques**: Ces capacités nécessitent des échanges d'information active et des processus de régulation ou de commande. Elles impliquent généralement une dimension temporelle et un traitement d'information (ex: régulation thermique, détection de présence).  
   * **Capacités statiques**: Ces capacités reposent sur des propriétés physiques passives, qui n'impliquent pas d'échanges d'information dynamiques (ex: isolation acoustique, résistance structurelle).  
 * **Fonctions**: Les fonctions sont des actions atomiques qui déclinent les capacités dynamiques en opérations élémentaires et indivisibles. Elles constituent le niveau le plus granulaire du monde immatériel dynamique. Chaque fonction:  
-  * Utilise ou accède à un ou plusieurs points de données  
+  * Utilise ou accède à un point de donnée  
   * Représente une action précise et bien définie (ex: mesurer une température, commander un niveau d'éclairage)  
   * Peut être associée à des critères de performance spécifiques  
 * **Attributs**: Les attributs sont les caractéristiques requises qui déclinent les capacités statiques en propriétés mesurables. Ils constituent le niveau le plus granulaire du monde immatériel statique. Chaque attribut:  
@@ -193,7 +193,7 @@ MONDE IMMATÉRIEL                                    MONDE MATÉRIEL
 
 * **Points de données**: Ils constituent l'interface entre les fonctions immatérielles et les dispositifs matériels. Chaque point de donnée:  
   * Est exposé par un dispositif spécifique  
-  * Est utilisé par une fonction précise  
+  * Est utilisé par une ou plusieurs fonctions   
   * Transite par un équipement communicant  
   * Possède un type de donnée et une précision définis  
   * Exemples: température mesurée, niveau de gradation, état d'occupation  
@@ -627,9 +627,9 @@ json
 
 Cette structure ontologique sert de fondation pour l'ensemble des bases de données et outils de la Transversalité Digitale. Elle permet une interopérabilité complète et facilite l'enrichissement collaboratif des communs numériques.
 
-# **3\. PARCOURS SYNAPTIK HUB**
+# **3\. PARCOURS Digital Transversality HUB**
 
-Le parcours Synaptik HUB opérationnalise l'ontologie Transversalité Digitale en un processus structuré en six phases. Chacune de ces phases possède ses propres objectifs, acteurs, méthodes et livrables, tout en maintenant une continuité informationnelle complète.
+Le parcours Digital Transversality HUB opérationnalise l'ontologie Transversalité Digitale en un processus structuré en six phases. Chacune de ces phases possède ses propres objectifs, acteurs, méthodes et livrables, tout en maintenant une continuité informationnelle complète.
 
 ## **3.1 Phase 1: Intention stratégique**
 
@@ -2721,7 +2721,7 @@ La Transversalité Digitale ouvre des horizons prometteurs pour l'industrie:
 
 **Écosystèmes circulaires territoriaux**: L'enrichissement continu des bases de matériaux disponibles encourage le développement d'écosystèmes locaux de réemploi, créant de la valeur économique, environnementale et sociale dans les territoires.
 
-Cette approche représente ainsi non pas une simple amélioration incrémentale, mais une transformation structurelle de la manière dont nous concevons, réalisons et exploitons nos environnements de vie, les rendant plus durables, adaptables et alignés avec les besoins réels des utilisateurs et de la société.\# Transversalité Digitale & Synaptik HUB
+Cette approche représente ainsi non pas une simple amélioration incrémentale, mais une transformation structurelle de la manière dont nous concevons, réalisons et exploitons nos environnements de vie, les rendant plus durables, adaptables et alignés avec les besoins réels des utilisateurs et de la société.\# Transversalité Digitale & Digital Transversality HUB
 
 ## **Méthodologie et ontologie pour un environnement bâti cohérent et performant**
 
@@ -3399,9 +3399,9 @@ json
 
 Cette structure ontologique sert de fondation pour l'ensemble des bases de données et outils de la Transversalité Digitale. Elle permet une interopérabilité complète et facilite l'enrichissement collaboratif des communs numériques.
 
-## **3\. PARCOURS SYNAPTIK HUB**
+## **3\. PARCOURS Digital Transversality HUB**
 
-Le parcours Synaptik HUB opérationnalise l'ontologie Transversalité Digitale en un processus structuré en six phases. Chacune de ces phases possède ses propres objectifs, acteurs, méthodes et livrables, tout en maintenant une continuité informationnelle complète.
+Le parcours Digital Transversality HUB opérationnalise l'ontologie Transversalité Digitale en un processus structuré en six phases. Chacune de ces phases possède ses propres objectifs, acteurs, méthodes et livrables, tout en maintenant une continuité informationnelle complète.
 
 ### **3.1 Phase 1: Intention stratégique**
 
