@@ -2,505 +2,505 @@
   "@context": {
     "td": "http://dt-synaptik.tech/ontology/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "schema": "http://schema.org/",
-    "owl": "http://www.w3.org/2002/07/owl#"
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/"
   },
   "@graph": [
     {
+      "@id": "td:Ontology",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Ontologie Transversalité Digitale",
+      "rdfs:comment": "Ontologie formelle décrivant le modèle conceptuel de la Transversalité Digitale",
+      "owl:versionInfo": "1.0.0",
+      "dcterms:creator": "Transversalité Digitale",
+      "dcterms:created": "2023-12-01",
+      "dcterms:modified": "2024-05-20"
+    },
+    
+    // Classes principales du monde immatériel
+    {
       "@id": "td:Exigence",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Exigence",
-      "rdfs:comment": "Formalisation des besoins issus des décisions stratégiques, intentions et contextes",
-      "owl:disjointWith": [
-        {
-          "@id": "td:Capacite"
-        },
-        {
-          "@id": "td:ElementContexteSpatial"
-        }
-      ]
+      "rdfs:comment": "Formalisation des besoins issus des intentions stratégiques"
     },
     {
       "@id": "td:ExigenceReglementaire",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Exigence"
-      },
-      "rdfs:label": "ExigenceReglementaire",
+      "rdfs:subClassOf": {"@id": "td:Exigence"},
+      "rdfs:label": "Exigence Réglementaire",
       "rdfs:comment": "Exigence issue d'une obligation légale ou réglementaire"
     },
     {
       "@id": "td:ExigenceVolontaire",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Exigence"
-      },
-      "rdfs:label": "ExigenceVolontaire",
+      "rdfs:subClassOf": {"@id": "td:Exigence"},
+      "rdfs:label": "Exigence Volontaire",
       "rdfs:comment": "Exigence issue d'un référentiel, label ou certification volontaire"
     },
     {
       "@id": "td:ExigenceNaturelle",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Exigence"
-      },
-      "rdfs:label": "ExigenceNaturelle",
-      "rdfs:comment": "Exigence issue des besoins fonctionnels intrinsèques non formalisés"
+      "rdfs:subClassOf": {"@id": "td:Exigence"},
+      "rdfs:label": "Exigence Naturelle",
+      "rdfs:comment": "Exigence issue des besoins fonctionnels intrinsèques"
+    },
+    {
+      "@id": "td:ExigenceCirculaire",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:Exigence"},
+      "rdfs:label": "Exigence Circulaire",
+      "rdfs:comment": "Exigence liée au réemploi et à l'économie circulaire"
     },
     {
       "@id": "td:Capacite",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Capacité",
       "rdfs:comment": "Aptitude requise pour satisfaire une exigence"
     },
     {
       "@id": "td:CapaciteDynamique",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Capacite"
-      },
-      "rdfs:label": "CapacitéDynamique",
-      "rdfs:comment": "Capacité s'appuyant sur des fonctions (processus actifs)"
+      "rdfs:subClassOf": {"@id": "td:Capacite"},
+      "rdfs:label": "Capacité Dynamique",
+      "rdfs:comment": "Capacité nécessitant des échanges d'information active"
     },
     {
       "@id": "td:CapaciteStatique",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Capacite"
-      },
-      "rdfs:label": "CapacitéStatique",
-      "rdfs:comment": "Capacité s'appuyant sur des attributs (caractéristiques passives)"
+      "rdfs:subClassOf": {"@id": "td:Capacite"},
+      "rdfs:label": "Capacité Statique",
+      "rdfs:comment": "Capacité reposant sur des propriétés physiques passives"
     },
     {
       "@id": "td:Fonction",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Fonction",
-      "rdfs:comment": "Action atomique supportant une capacité dynamique"
+      "rdfs:comment": "Action atomique déclinant une capacité dynamique"
     },
     {
       "@id": "td:Attribut",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Attribut",
-      "rdfs:comment": "Caractéristique requise supportant une capacité statique"
+      "rdfs:comment": "Caractéristique requise déclinant une capacité statique"
     },
     {
       "@id": "td:PointDeDonnee",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "PointDeDonnée",
-      "rdfs:comment": "Donnée communicante faisant le lien entre fonction et composant"
+      "rdfs:label": "Point de Donnée",
+      "rdfs:comment": "Interface entre fonctions et dispositifs, exposé par un dispositif et utilisé par une fonction"
     },
-    {
-      "@id": "td:Caracteristique",
-      "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "Caractéristique",
-      "rdfs:comment": "Propriété mesurable d'un composant faisant le lien avec un attribut"
-    },
-    {
-      "@id": "td:Preuve",
-      "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "Preuve",
-      "rdfs:comment": "Élément de validation d'un attribut"
-    },
+    
+    // Classes du monde matériel
     {
       "@id": "td:ElementContexteSpatial",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "ÉlémentContexteSpatial",
-      "rdfs:comment": "Élément constitutif du contexte spatial (territoire, bâtiment, étage, espace)"
+      "rdfs:label": "Élément du Contexte Spatial",
+      "rdfs:comment": "Élément constitutif du contexte spatial physique"
     },
     {
       "@id": "td:Territoire",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:ElementContexteSpatial"
-      },
+      "rdfs:subClassOf": {"@id": "td:ElementContexteSpatial"},
       "rdfs:label": "Territoire",
-      "rdfs:comment": "Zone géographique à l'échelle macro"
-    },
-    {
-      "@id": "td:Quartier",
-      "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:ElementContexteSpatial"
-      },
-      "rdfs:label": "Quartier",
-      "rdfs:comment": "Subdivision d'un territoire"
+      "rdfs:comment": "Élément spatial à l'échelle territoriale"
     },
     {
       "@id": "td:Batiment",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:ElementContexteSpatial"
-      },
+      "rdfs:subClassOf": {"@id": "td:ElementContexteSpatial"},
       "rdfs:label": "Bâtiment",
-      "rdfs:comment": "Structure immobilière constituant l'unité principale"
+      "rdfs:comment": "Édifice constituant l'unité principale"
     },
     {
       "@id": "td:Niveau",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:ElementContexteSpatial"
-      },
+      "rdfs:subClassOf": {"@id": "td:ElementContexteSpatial"},
       "rdfs:label": "Niveau",
       "rdfs:comment": "Étage ou subdivision verticale d'un bâtiment"
     },
     {
       "@id": "td:Espace",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:ElementContexteSpatial"
-      },
+      "rdfs:subClassOf": {"@id": "td:ElementContexteSpatial"},
       "rdfs:label": "Espace",
       "rdfs:comment": "Subdivision d'un niveau, unité spatiale fonctionnelle"
     },
     {
       "@id": "td:Zone",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Zone",
       "rdfs:comment": "Concept pivot qui contient des capacités et s'applique aux éléments du contexte spatial"
     },
     {
       "@id": "td:ZoneRacine",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Zone"
-      },
-      "rdfs:label": "ZoneRacine",
-      "rdfs:comment": "Zone fondamentale portant les capacités immuables d'un élément spatial"
+      "rdfs:subClassOf": {"@id": "td:Zone"},
+      "rdfs:label": "Zone Racine",
+      "rdfs:comment": "Zone portant les capacités immuables d'un élément spatial"
     },
     {
       "@id": "td:Dispositif",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Dispositif",
-      "rdfs:comment": "Élément fonctionnel situé dans un espace, facilite la conception"
+      "rdfs:comment": "Entité fonctionnelle matérielle exposant des points de données"
     },
     {
       "@id": "td:Composant",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Composant",
-      "rdfs:comment": "Élément constitutif d'un dispositif"
+      "rdfs:comment": "Élément matériel constitutif d'un dispositif"
     },
     {
       "@id": "td:EquipementCommunicant",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
-      "rdfs:label": "ÉquipementCommunicant",
-      "rdfs:comment": "Élément physique assurant l'interface numérique, informe des capacités de communication"
+      "rdfs:label": "Équipement Communicant",
+      "rdfs:comment": "Élément permettant la communication des points de données"
     },
+    {
+      "@id": "td:Caracteristique",
+      "@type": "owl:Class",
+      "rdfs:label": "Caractéristique",
+      "rdfs:comment": "Propriété mesurable d'un composant"
+    },
+    {
+      "@id": "td:CaracteristiqueCircularite",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:Caracteristique"},
+      "rdfs:label": "Caractéristique de Circularité",
+      "rdfs:comment": "Propriété liée à la circularité d'un composant"
+    },
+    {
+      "@id": "td:Preuve",
+      "@type": "owl:Class",
+      "rdfs:label": "Preuve",
+      "rdfs:comment": "Élément validant une caractéristique (document, certificat, mesure)"
+    },
+    {
+      "@id": "td:MecanismeAuthentification",
+      "@type": "owl:Class",
+      "rdfs:label": "Mécanisme d'Authentification",
+      "rdfs:comment": "Système assurant l'authenticité des preuves (certificat, blockchain, consensus)"
+    },
+    
+    // Classes d'évaluation d'impact
     {
       "@id": "td:Impact",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "owl:Thing"
-      },
       "rdfs:label": "Impact",
-      "rdfs:comment": "Évaluation des conséquences économiques, environnementales, sociales ou valorisatives"
+      "rdfs:comment": "Conséquence évaluable d'un choix"
+    },
+    {
+      "@id": "td:ImpactEnvironnemental",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:Impact"},
+      "rdfs:label": "Impact Environnemental",
+      "rdfs:comment": "Impact sur l'environnement"
     },
     {
       "@id": "td:ImpactEconomique",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Impact"
-      },
-      "rdfs:label": "ImpactÉconomique",
-      "rdfs:comment": "Impact financier (coûts d'investissement, d'exploitation, etc.)"
+      "rdfs:subClassOf": {"@id": "td:Impact"},
+      "rdfs:label": "Impact Économique",
+      "rdfs:comment": "Impact sur l'économie et les coûts"
     },
     {
-      "@id": "td:ImpactRSE",
+      "@id": "td:ImpactSocial",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Impact"
-      },
-      "rdfs:label": "ImpactRSE",
-      "rdfs:comment": "Impact environnemental, social et de gouvernance"
-    },
-    {
-      "@id": "td:ImpactACV",
-      "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Impact"
-      },
-      "rdfs:label": "ImpactACV",
-      "rdfs:comment": "Impact lié à l'analyse du cycle de vie"
+      "rdfs:subClassOf": {"@id": "td:Impact"},
+      "rdfs:label": "Impact Social",
+      "rdfs:comment": "Impact sur le confort et le bien-être"
     },
     {
       "@id": "td:ImpactValeur",
       "@type": "owl:Class",
-      "rdfs:subClassOf": {
-        "@id": "td:Impact"
-      },
-      "rdfs:label": "ImpactValeur",
-      "rdfs:comment": "Gain potentiel de valeur financière, d'usage ou de différenciation"
+      "rdfs:subClassOf": {"@id": "td:Impact"},
+      "rdfs:label": "Impact Valeur",
+      "rdfs:comment": "Impact sur la valeur et l'attractivité"
     },
+    
+    // Classes de phases du cycle de vie
+    {
+      "@id": "td:PhaseCycleVie",
+      "@type": "owl:Class",
+      "rdfs:label": "Phase du Cycle de Vie",
+      "rdfs:comment": "Étape du cycle de vie d'un élément"
+    },
+    {
+      "@id": "td:PhaseAmont",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:PhaseCycleVie"},
+      "rdfs:label": "Phase Amont",
+      "rdfs:comment": "Phase de production et fabrication"
+    },
+    {
+      "@id": "td:PhaseConstruction",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:PhaseCycleVie"},
+      "rdfs:label": "Phase Construction",
+      "rdfs:comment": "Phase de mise en œuvre sur site"
+    },
+    {
+      "@id": "td:PhaseExploitation",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:PhaseCycleVie"},
+      "rdfs:label": "Phase Exploitation",
+      "rdfs:comment": "Phase d'usage et maintenance"
+    },
+    {
+      "@id": "td:PhaseFinDeVie",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": {"@id": "td:PhaseCycleVie"},
+      "rdfs:label": "Phase Fin de Vie",
+      "rdfs:comment": "Phase de démontage et recyclage"
+    },
+    
+    // Object Properties - Relations entre classes
     {
       "@id": "td:requiert",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Exigence"
-      },
-      "rdfs:range": {
-        "@id": "td:Capacite"
-      },
+      "rdfs:domain": {"@id": "td:Exigence"},
+      "rdfs:range": {"@id": "td:Capacite"},
       "rdfs:label": "requiert",
-      "rdfs:comment": "Une exigence requiert une ou plusieurs capacités"
+      "rdfs:comment": "Une exigence requiert une capacité"
     },
     {
       "@id": "td:seDeclieEn",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:CapaciteDynamique"
-      },
-      "rdfs:range": {
-        "@id": "td:Fonction"
-      },
-      "rdfs:label": "seDéclineEn",
-      "rdfs:comment": "Une capacité dynamique se décline en fonctions atomiques"
+      "rdfs:domain": {"@id": "td:CapaciteDynamique"},
+      "rdfs:range": {"@id": "td:Fonction"},
+      "rdfs:label": "se décline en",
+      "rdfs:comment": "Une capacité dynamique se décline en fonctions"
     },
     {
       "@id": "td:sAppuieSur",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:CapaciteStatique"
-      },
-      "rdfs:range": {
-        "@id": "td:Attribut"
-      },
-      "rdfs:label": "s'appuieSur",
+      "rdfs:domain": {"@id": "td:CapaciteStatique"},
+      "rdfs:range": {"@id": "td:Attribut"},
+      "rdfs:label": "s'appuie sur",
       "rdfs:comment": "Une capacité statique s'appuie sur des attributs"
+    },
+    {
+      "@id": "td:utilise",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:Fonction"},
+      "rdfs:range": {"@id": "td:PointDeDonnee"},
+      "rdfs:label": "utilise",
+      "rdfs:comment": "Une fonction utilise un point de donnée"
+    },
+    {
+      "@id": "td:expose",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:Dispositif"},
+      "rdfs:range": {"@id": "td:PointDeDonnee"},
+      "rdfs:label": "expose",
+      "rdfs:comment": "Un dispositif expose des points de données"
     },
     {
       "@id": "td:estValidePar",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Attribut"
-      },
-      "rdfs:range": {
-        "@id": "td:Preuve"
-      },
-      "rdfs:label": "estValidéPar",
-      "rdfs:comment": "Un attribut est validé par une preuve"
+      "rdfs:domain": {"@id": "td:Caracteristique"},
+      "rdfs:range": {"@id": "td:Preuve"},
+      "rdfs:label": "est validé par",
+      "rdfs:comment": "Une caractéristique est validée par une preuve"
     },
     {
-      "@id": "td:relieLaFonctionAu",
+      "@id": "td:estAuthentifiePar",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:PointDeDonnee"
-      },
-      "rdfs:range": {
-        "@id": "td:Composant"
-      },
-      "rdfs:label": "relieLaFonctionAu",
-      "rdfs:comment": "Un point de donnée relie une fonction à un composant"
+      "rdfs:domain": {"@id": "td:Preuve"},
+      "rdfs:range": {"@id": "td:MecanismeAuthentification"},
+      "rdfs:label": "est authentifié par",
+      "rdfs:comment": "Une preuve est authentifiée par un mécanisme d'authentification"
     },
     {
-      "@id": "td:reference",
+      "@id": "td:transitePar",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Caracteristique"
-      },
-      "rdfs:range": {
-        "@id": "td:Composant"
-      },
-      "rdfs:label": "référence",
-      "rdfs:comment": "Une caractéristique référence un composant"
-    },
-    {
-      "@id": "td:estSupporte",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Fonction"
-      },
-      "rdfs:range": {
-        "@id": "td:PointDeDonnee"
-      },
-      "rdfs:label": "estSupporté",
-      "rdfs:comment": "Une fonction est supportée par un point de donnée"
-    },
-    {
-      "@id": "td:estConcretisePar",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Attribut"
-      },
-      "rdfs:range": {
-        "@id": "td:Caracteristique"
-      },
-      "rdfs:label": "estConcrétiséPar",
-      "rdfs:comment": "Un attribut est concrétisé par une caractéristique"
-    },
-    {
-      "@id": "td:sAppliqueA",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Zone"
-      },
-      "rdfs:range": {
-        "@id": "td:ElementContexteSpatial"
-      },
-      "rdfs:label": "s'appliqueA",
-      "rdfs:comment": "Une zone s'applique à un élément du contexte spatial"
-    },
-    {
-      "@id": "td:contient",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:ElementContexteSpatial"
-      },
-      "rdfs:range": {
-        "@id": "td:Dispositif"
-      },
-      "rdfs:label": "contient",
-      "rdfs:comment": "Un élément du contexte spatial contient des dispositifs"
-    },
-    {
-      "@id": "td:contientCapacite",
-      "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Zone"
-      },
-      "rdfs:range": {
-        "@id": "td:Capacite"
-      },
-      "rdfs:label": "contientCapacité",
-      "rdfs:comment": "Une zone contient ou porte des capacités"
+      "rdfs:domain": {"@id": "td:PointDeDonnee"},
+      "rdfs:range": {"@id": "td:EquipementCommunicant"},
+      "rdfs:label": "transite par",
+      "rdfs:comment": "Un point de donnée transite par un équipement communicant"
     },
     {
       "@id": "td:estComposeDe",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Dispositif"
-      },
-      "rdfs:range": {
-        "@id": "td:Composant"
-      },
-      "rdfs:label": "estComposéDe",
+      "rdfs:domain": {"@id": "td:Dispositif"},
+      "rdfs:range": {"@id": "td:Composant"},
+      "rdfs:label": "est composé de",
       "rdfs:comment": "Un dispositif est composé de composants"
     },
     {
-      "@id": "td:estAttacheA",
+      "@id": "td:possede",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:Dispositif"
-      },
-      "rdfs:range": {
-        "@id": "td:ElementContexteSpatial"
-      },
-      "rdfs:label": "estAttachéA",
-      "rdfs:comment": "Un dispositif est attaché à un élément du contexte spatial (généralement un espace)"
+      "rdfs:domain": {"@id": "td:Composant"},
+      "rdfs:range": {"@id": "td:Caracteristique"},
+      "rdfs:label": "possède",
+      "rdfs:comment": "Un composant possède des caractéristiques"
     },
     {
-      "@id": "td:fournitLesPointsDeDonnee",
+      "@id": "td:estConcretisePar",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:EquipementCommunicant"
-      },
-      "rdfs:range": {
-        "@id": "td:PointDeDonnee"
-      },
-      "rdfs:label": "fournitLesPointsDeDonnée",
-      "rdfs:comment": "Un équipement communicant fournit des points de donnée"
+      "rdfs:domain": {"@id": "td:Attribut"},
+      "rdfs:range": {"@id": "td:Caracteristique"},
+      "rdfs:label": "est concrétisé par",
+      "rdfs:comment": "Un attribut est concrétisé par une caractéristique"
+    },
+    {
+      "@id": "td:influence",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "td:Impact"},
+      "rdfs:label": "influence",
+      "rdfs:comment": "Une caractéristique de circularité influence des impacts"
     },
     {
       "@id": "td:aCritereImpact",
       "@type": "owl:ObjectProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:Exigence"
-        },
-        {
-          "@id": "td:Composant"
-        }
+        {"@id": "td:Exigence"},
+        {"@id": "td:Dispositif"},
+        {"@id": "td:Composant"}
       ],
-      "rdfs:range": {
-        "@id": "td:Impact"
-      },
-      "rdfs:label": "aCritèreImpact",
-      "rdfs:comment": "Une exigence ou un composant a des critères d'impact"
+      "rdfs:range": {"@id": "td:Impact"},
+      "rdfs:label": "a critère impact",
+      "rdfs:comment": "Relation avec les impacts"
     },
     {
-      "@id": "td:estElementRacine",
+      "@id": "td:estEvalueDans",
       "@type": "owl:ObjectProperty",
-      "rdfs:domain": {
-        "@id": "td:ZoneRacine"
-      },
-      "rdfs:range": {
-        "@id": "td:ElementContexteSpatial"
-      },
-      "rdfs:label": "estElementRacine",
-      "rdfs:comment": "Une zone racine est l'élément fondamental d'un élément du contexte spatial"
+      "rdfs:domain": {"@id": "td:Impact"},
+      "rdfs:range": {"@id": "td:PhaseCycleVie"},
+      "rdfs:label": "est évalué dans",
+      "rdfs:comment": "Un impact est évalué dans une phase du cycle de vie"
     },
     {
-      "@id": "td:aGUID",
+      "@id": "td:sAppliqueA",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:Zone"},
+      "rdfs:range": {"@id": "td:ElementContexteSpatial"},
+      "rdfs:label": "s'applique à",
+      "rdfs:comment": "Une zone s'applique à un élément du contexte spatial"
+    },
+    {
+      "@id": "td:contientCapacite",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:Zone"},
+      "rdfs:range": {"@id": "td:Capacite"},
+      "rdfs:label": "contient capacité",
+      "rdfs:comment": "Une zone contient des capacités"
+    },
+    {
+      "@id": "td:estAttacheA",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:Dispositif"},
+      "rdfs:range": {"@id": "td:ElementContexteSpatial"},
+      "rdfs:label": "est attaché à",
+      "rdfs:comment": "Un dispositif est attaché à un élément du contexte spatial"
+    },
+    {
+      "@id": "td:moduleImpact",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:ImpactCircularite"},
+      "rdfs:range": {"@id": "td:Impact"},
+      "rdfs:label": "module impact",
+      "rdfs:comment": "Un impact de circularité module d'autres impacts"
+    },
+    {
+      "@id": "td:permetLaCommunication",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {"@id": "td:EquipementCommunicant"},
+      "rdfs:range": {"@id": "td:Dispositif"},
+      "rdfs:label": "permet la communication",
+      "rdfs:comment": "Un équipement communicant permet la communication d'un dispositif"
+    },
+    
+    // Datatype Properties - Propriétés de données pour les classes
+    {
+      "@id": "td:identifier",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "identifiant",
+      "rdfs:comment": "Identifiant unique d'un élément"
+    },
+    {
+      "@id": "td:nom",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "nom",
+      "rdfs:comment": "Nom d'un élément"
+    },
+    {
+      "@id": "td:description",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "description",
+      "rdfs:comment": "Description textuelle d'un élément"
+    },
+    {
+      "@id": "td:source",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:ElementContexteSpatial"
-        },
-        {
-          "@id": "td:Dispositif"
-        },
-        {
-          "@id": "td:Composant"
-        }
+        {"@id": "td:Exigence"},
+        {"@id": "td:Impact"},
+        {"@id": "td:Preuve"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "aGUID",
-      "rdfs:comment": "Identifiant unique global utilisé pour l'intégration BIM"
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "source",
+      "rdfs:comment": "Source d'une exigence, d'un impact ou d'une preuve"
+    },
+    {
+      "@id": "td:versionInfo",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "information de version",
+      "rdfs:comment": "Information sur la version d'un élément"
+    },
+    {
+      "@id": "td:dateCreation",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:dateTime"},
+      "rdfs:label": "date de création",
+      "rdfs:comment": "Date de création d'un élément"
+    },
+    {
+      "@id": "td:dateModification",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:dateTime"},
+      "rdfs:label": "date de modification",
+      "rdfs:comment": "Date de dernière modification d'un élément"
+    },
+    {
+      "@id": "td:creePar",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "créé par",
+      "rdfs:comment": "Auteur de l'élément"
+    },
+    {
+      "@id": "td:modifiePar",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "owl:Thing"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "modifié par",
+      "rdfs:comment": "Auteur de la dernière modification"
     },
     {
       "@id": "td:valeur",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:PointDeDonnee"
-        },
-        {
-          "@id": "td:Caracteristique"
-        },
-        {
-          "@id": "td:Impact"
-        }
+        {"@id": "td:PointDeDonnee"},
+        {"@id": "td:Caracteristique"},
+        {"@id": "td:Impact"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "valeur",
       "rdfs:comment": "Valeur associée à un point de donnée, une caractéristique ou un impact"
     },
@@ -508,19 +508,11 @@
       "@id": "td:unite",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:PointDeDonnee"
-        },
-        {
-          "@id": "td:Caracteristique"
-        },
-        {
-          "@id": "td:Impact"
-        }
+        {"@id": "td:PointDeDonnee"},
+        {"@id": "td:Caracteristique"},
+        {"@id": "td:Impact"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "unité",
       "rdfs:comment": "Unité de mesure associée à une valeur"
     },
@@ -528,89 +520,77 @@
       "@id": "td:dateValidation",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:Capacite"
-        },
-        {
-          "@id": "td:Preuve"
-        }
+        {"@id": "td:Capacite"},
+        {"@id": "td:Preuve"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:dateTime"
-      },
-      "rdfs:label": "dateValidation",
+      "rdfs:range": {"@id": "xsd:dateTime"},
+      "rdfs:label": "date de validation",
       "rdfs:comment": "Date de validation d'une capacité ou d'une preuve"
     },
     {
-      "@id": "td:valideePar",
+      "@id": "td:validePar",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:Capacite"
-        },
-        {
-          "@id": "td:Preuve"
-        }
+        {"@id": "td:Capacite"},
+        {"@id": "td:Preuve"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "validéePar",
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "validé par",
       "rdfs:comment": "Agent ayant validé une capacité ou une preuve"
-    },
-    {
-      "@id": "td:fourchette",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:Impact"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "fourchette",
-      "rdfs:comment": "Plage de valeurs possibles pour un impact"
     },
     {
       "@id": "td:fiabilite",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:Impact"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:domain": {"@id": "td:Impact"},
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "fiabilité",
       "rdfs:comment": "Niveau de fiabilité de l'évaluation d'impact"
     },
     {
-      "@id": "td:source",
+      "@id": "td:reemployabilite",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": [
-        {
-          "@id": "td:Exigence"
-        },
-        {
-          "@id": "td:Impact"
-        },
-        {
-          "@id": "td:Preuve"
-        }
-      ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "source",
-      "rdfs:comment": "Source d'une exigence, d'un impact ou d'une preuve"
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "xsd:decimal"},
+      "rdfs:label": "réemployabilité",
+      "rdfs:comment": "Score de réemployabilité d'un composant (0-10)"
+    },
+    {
+      "@id": "td:demontabilite",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "xsd:decimal"},
+      "rdfs:label": "démontabilité",
+      "rdfs:comment": "Score de démontabilité d'un composant (0-10)"
+    },
+    {
+      "@id": "td:recyclabilite",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "xsd:decimal"},
+      "rdfs:label": "recyclabilité",
+      "rdfs:comment": "Score de recyclabilité d'un composant (0-10)"
+    },
+    {
+      "@id": "td:adaptabilite",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "xsd:decimal"},
+      "rdfs:label": "adaptabilité",
+      "rdfs:comment": "Score d'adaptabilité d'un composant (0-10)"
+    },
+    {
+      "@id": "td:typePoint",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:PointDeDonnee"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "type de point",
+      "rdfs:comment": "Type de point de donnée (mesure, commande, état)"
     },
     {
       "@id": "td:protocole",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:EquipementCommunicant"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:domain": {"@id": "td:EquipementCommunicant"},
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "protocole",
       "rdfs:comment": "Protocole de communication utilisé par un équipement communicant"
     },
@@ -618,54 +598,64 @@
       "@id": "td:adresse",
       "@type": "owl:DatatypeProperty",
       "rdfs:domain": [
-        {
-          "@id": "td:EquipementCommunicant"
-        },
-        {
-          "@id": "td:PointDeDonnee"
-        }
+        {"@id": "td:EquipementCommunicant"},
+        {"@id": "td:PointDeDonnee"}
       ],
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "adresse",
       "rdfs:comment": "Adresse réseau d'un équipement communicant ou d'un point de donnée"
     },
     {
-      "@id": "td:typeDonnee",
+      "@id": "td:dureeVie",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:PointDeDonnee"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "typeDonnée",
-      "rdfs:comment": "Type de donnée d'un point de donnée (mesure, commande, statut)"
+      "rdfs:domain": {"@id": "td:Composant"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "durée de vie",
+      "rdfs:comment": "Durée de vie estimée d'un composant"
     },
     {
       "@id": "td:usage",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:Zone"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
+      "rdfs:domain": {"@id": "td:Zone"},
+      "rdfs:range": {"@id": "xsd:string"},
       "rdfs:label": "usage",
       "rdfs:comment": "Usage associé à une zone"
     },
     {
-      "@id": "td:referentiel",
+      "@id": "td:methodologieEvaluation",
       "@type": "owl:DatatypeProperty",
-      "rdfs:domain": {
-        "@id": "td:ExigenceVolontaire"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      },
-      "rdfs:label": "référentiel",
-      "rdfs:comment": "Référentiel de certification dont est issue une exigence volontaire"
+      "rdfs:domain": {"@id": "td:Impact"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "méthodologie d'évaluation",
+      "rdfs:comment": "Méthodologie utilisée pour évaluer un impact"
+    },
+    {
+      "@id": "td:justification",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:CaracteristiqueCircularite"},
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "justification",
+      "rdfs:comment": "Justification d'un score de caractéristique de circularité"
+    },
+    {
+      "@id": "td:contenuRecycle",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": {"@id": "td:Composant"},
+      "rdfs:range": {"@id": "xsd:decimal"},
+      "rdfs:label": "contenu recyclé",
+      "rdfs:comment": "Pourcentage de matériaux recyclés dans un composant"
+    },
+    {
+      "@id": "td:aGUID",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": [
+        {"@id": "td:Composant"},
+        {"@id": "td:Dispositif"},
+        {"@id": "td:ElementContexteSpatial"}
+      ],
+      "rdfs:range": {"@id": "xsd:string"},
+      "rdfs:label": "GUID",
+      "rdfs:comment": "Identifiant global unique utilisé dans les modèles BIM"
     }
   ]
 }
